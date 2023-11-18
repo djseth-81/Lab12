@@ -2,3 +2,5 @@ __init__.py
 main.py
 Lab 12.pdf
 **/__pycache__/
+**/.vscode/
+**/.pytest_cache/
