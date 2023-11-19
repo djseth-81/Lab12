@@ -60,8 +60,8 @@ class Television:
         """
         self.__status: bool = False
         self.__muted: bool = False
-        self.__volume: int = self.MIN_VOLUME
-        self.__channel: int = self.MIN_CHANNEL
+        self.__volume: int = Television.MIN_VOLUME
+        self.__channel: int = Television.MIN_CHANNEL
 
     ### Mutators ###
     def power(self) -> None:
@@ -84,11 +84,11 @@ class Television:
         """
         # Increments tv channel value when tv is on
         if self.powered():
-            if self.__channel < self.MAX_CHANNEL:
+            if self.__channel < Television.MAX_CHANNEL:
                 self.__channel += 1
             else:
                 # If on maximum channel value and called again, cycles back to min channel value
-                self.__channel = self.MIN_CHANNEL
+                self.__channel = Television.MIN_CHANNEL
     
     def channel_down(self) -> None:
         """
@@ -96,11 +96,11 @@ class Television:
         """
         # Decrements tv channel value when tv is on.
         if self.powered():
-            if self.__channel > self.MIN_CHANNEL:
+            if self.__channel > Television.MIN_CHANNEL:
                 self.__channel -= 1
             else:
                 # Cycles back to max channel called at min value
-                self.__channel = self.MAX_CHANNEL
+                self.__channel = Television.MAX_CHANNEL
     
     def volume_up(self) -> None:
         """
@@ -111,7 +111,7 @@ class Television:
             if self.muted():
                 # automatically unmutes tv
                 self.mute()
-            if self.__volume < self.MAX_VOLUME:
+            if self.__volume < Television.MAX_VOLUME:
                 self.__volume += 1
     
     def volume_down(self) -> None:
@@ -123,7 +123,7 @@ class Television:
             if self.muted():
                 # automatically unmutes tv
                 self.mute()
-            if self.__volume > self.MIN_VOLUME:
+            if self.__volume > Television.MIN_VOLUME:
                 self.__volume -= 1
 
     ### Accessors ###
@@ -160,4 +160,10 @@ class Television:
         Returns a formatted string which calls powered(), getChannel(), and getVolume() to display the given state of a tv object
         :return: string of the power status, channel value, and volume value
         """
-        return f"Power - {self.powered()}, Channel - {self.getChannel()}, Volume - {self.getVolume()}"
+        return f"Power = {self.powered()}, Channel = {self.getChannel()}, Volume = {self.getVolume()}"
+
+""" 
+-0.5pts: GitHub repository name should be python str 
+-1pt: Your output statements should follow the same format as the ones provided in the main.py file comments It’s better to use Television.MIN_CHANNEL rather than self.MIN_CHANNEL (refer to the discussion video minute 12:41 on the implication of using self vs the class name when it comes to class variables). 
+test_init: -2pts: Missing test Resubmit by 11/19/23 – 10pm
+"""

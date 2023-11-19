@@ -27,7 +27,7 @@ class Test:
         del self.tv2
 
     ### Test cases ###
-    def test_construction(self):
+    def test_init(self):
         """
         This tests the construction of the television (tv) class of which the variables, tv1 and tv2, have been assigned.
         """
